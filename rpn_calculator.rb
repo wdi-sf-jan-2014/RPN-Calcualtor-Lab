@@ -7,9 +7,9 @@ class RPNCalculator
   # Parse should return a list class that you defined, not a ruby array
   def self.parse(rpn_string)
     arr = rpn_string.split("")
-    stack = Stack.new()
-    arr.each { |num| stack.push(num) }
-
+    list = List.new()
+    arr.each { |num| list.push(num) }
+    return list
   end
 
   def self.evaluate(rpn_list)
