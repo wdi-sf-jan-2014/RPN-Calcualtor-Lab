@@ -18,20 +18,20 @@ describe RPNCalculator do
   end
   
   it 'should be able to identify a number' do
-    expect(RPNCalcualtor.is_number('5')).to be_true
-    expect(RPNCalcualtor.is_number('-995')).to be_true
-    expect(RPNCalcualtor.is_number('X')).to be_false
-    expect(RPNCalcualtor.is_number('+')).to be_false
+    expect(RPNCalcualtor.is_number('5')).to true
+    expect(RPNCalcualtor.is_number('-995')).to true
+    expect(RPNCalcualtor.is_number('X')).to false
+    expect(RPNCalcualtor.is_number('+')).to false
   end
 
   it 'should be able to identify an operator' do
-    expect(RPNCalcualtor.is_number('+')).to be_true
-    expect(RPNCalcualtor.is_number('-')).to be_true
-    expect(RPNCalcualtor.is_number('*')).to be_true
-    expect(RPNCalcualtor.is_number('/')).to be_true
-    expect(RPNCalcualtor.is_number('^')).to be_true
-    expect(RPNCalcualtor.is_number('=')).to be_false
-    expect(RPNCalcualtor.is_number('2')).to be_false
+    expect(RPNCalcualtor.is_number('+')).to true
+    expect(RPNCalcualtor.is_number('-')).to true
+    expect(RPNCalcualtor.is_number('*')).to true
+    expect(RPNCalcualtor.is_number('/')).to true
+    expect(RPNCalcualtor.is_number('^')).to true
+    expect(RPNCalcualtor.is_number('=')).to false
+    expect(RPNCalcualtor.is_number('2')).to false
   end
 
   it 'should evaluate the rpn expression' do
