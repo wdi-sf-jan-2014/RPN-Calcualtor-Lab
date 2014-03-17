@@ -25,13 +25,13 @@ describe RPNCalculator do
   end
 
   it 'should be able to identify an operator' do
-    expect(RPNCalcualtor.is_number('+')).to be_true
-    expect(RPNCalcualtor.is_number('-')).to be_true
-    expect(RPNCalcualtor.is_number('*')).to be_true
-    expect(RPNCalcualtor.is_number('/')).to be_true
-    expect(RPNCalcualtor.is_number('^')).to be_true
-    expect(RPNCalcualtor.is_number('=')).to be_false
-    expect(RPNCalcualtor.is_number('2')).to be_false
+    expect(RPNCalcualtor.is_operation('+')).to be_true
+    expect(RPNCalcualtor.is_operation('-')).to be_true
+    expect(RPNCalcualtor.is_operation('*')).to be_true
+    expect(RPNCalcualtor.is_operation('/')).to be_true
+    expect(RPNCalcualtor.is_operation('^')).to be_true
+    expect(RPNCalcualtor.is_operation('=')).to be_false
+    expect(RPNCalcualtor.is_operation('2')).to be_false
   end
 
   it 'should evaluate the rpn expression' do
