@@ -19,7 +19,7 @@ class RPNCalculator
   end
 
   def self.is_number(num)
-    if num.match(/\d/)
+    if num.match([\*\/\+\-\^])
       return true
     else
       return false
