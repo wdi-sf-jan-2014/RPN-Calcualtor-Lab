@@ -15,11 +15,6 @@ describe RPNCalculator do
     expect(rpn_list[4]).to eq('*')
     expect(rpn_list[5]).to eq('11')
     expect(rpn_list[6]).to eq('/')
-  end 
-
-  it 'should nil if the string that was parsed is invalid' do
-    rpn_string = "4 X +"
-    expect(RPNCalculator.parse(rpn_string)).to be_nil
   end
   
   it 'should be able to identify a number' do
