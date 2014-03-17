@@ -12,8 +12,11 @@ class RPNCalculator
   end
 
   def self.is_operation(operation)
+    # if operation.match(/[\/+-\\*]/) then return true else return false end
+    if operation.match(/[^\d\w\s"]/) then return true else return false end
   end
   
   def self.is_number(num)
+    if num.match(/[\d]+/) then return true else return false end
   end
 end
