@@ -3,42 +3,23 @@
 
 class Stack
 
-  require "./node"
+  require "./list"
   attr_reader :length
 
   def initialize
-    @tail = nil
-    @length = 0
+    @list = List.new
+  end
+
+  def length
+    @length = @list.length
   end
 
   def push(value)
-
-    if @length == 0
-      @tail = Node.new(value)
-    else
-      node = Node.new(value)
-      node.previous = @tail
-      @tail = node
-    end
-    @length+=1
-
+    @list.push(value)
   end
 
   def pop
-    if @length == 0
-      return nil
-    elsif @length == 1
-      temp = @tail
-      @tail = nil
-      @length = 0
-      return temp.value
-    else
-      temp = @tail
-      @tail = @tail.previous
-      temp.previous = nil
-      @length = @length - 1
-      return temp.value
-    end
+    @list.pop
   end
 
 
