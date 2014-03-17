@@ -2,4 +2,8 @@
 # Do not use any ruby arrays!!
 
 class Stack
+
+  require './list.rb'
+
+  
 end
