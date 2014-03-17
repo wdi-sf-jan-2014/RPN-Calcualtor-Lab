@@ -6,7 +6,7 @@ class RPNCalculator
 
   # Parse should return a list class that you defined, not a ruby array
   def self.parse(rpn_string)
-    arr = rpn_string.split("")
+    arr = rpn_string.split(" ")
     list = List.new()
     arr.each { |num| list.push(num) }
     return list
@@ -19,5 +19,10 @@ class RPNCalculator
   end
 
   def self.is_number(num)
+    if num.match(/\d/)
+      return true
+    else
+      return false
+    end
   end
 end
