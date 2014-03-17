@@ -27,16 +27,14 @@ class Stack
   def pop
     if @length == 0
       return nil
-    elsif @head == @tail
-      temp = @head
-      @head = nil
+    elsif @length == 1
+      temp = @tail
       @tail = nil
       @length = 0
       return temp.value
     else
       temp = @tail
       @tail = @tail.previous
-      @tail.next = nil
       temp.previous = nil
       @length = @length - 1
       return temp.value
