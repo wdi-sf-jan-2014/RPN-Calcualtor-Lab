@@ -1,4 +1,5 @@
 require './stack.rb'
+require 'pry'
 
 # Do not use a ruby array!  Add your list class instead
 
@@ -7,13 +8,24 @@ class RPNCalculator
   # Parse should return a list class that you defined, not a ruby array 
   def self.parse(rpn_string)
     arr = rpn_string.split(" ")
-    rpn_stack = Stack.new
-    arr.each { |x| rpn_stack.push(x) }
-    return rpn_stack
+    return arr
   end
 
   def self.evaluate(rpn_list)
-    # rpn list is a stack
+    # rpn_list is an array
+    stack = Stack.new
+    rpn_list.each do |item|
+      if RPNCalculator.is_number(item)
+        stack.push(item.to_f)
+      end
+      if RPNCalculator.is_operation(item)
+        x = stack.pop
+        y = stack.pop
+        stack.push(y.method(item).(x))
+      end
+    end
+    return stack.pop
+    # binding.pry
   end
 
   def self.is_operation(operation)

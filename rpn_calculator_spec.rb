@@ -38,7 +38,7 @@ describe RPNCalculator do
   it 'should evaluate the rpn expression' do
     rpn_string = "5 8 -"
     rpn_list = RPNCalculator.parse(rpn_string)
-
+  # binding.pry
     expect(RPNCalculator.evaluate(rpn_list)).to eq(-3)
 
     rpn_string = "5 2 /"
