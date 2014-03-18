@@ -6,7 +6,8 @@ class RPNCalculator
  
   # Parse should return a list class that you defined, not a ruby array 
   def self.parse(rpn_string)
-    rpn_string.split(" ")
+    arr = rpn_string.split(" ")
+    return arr
   end
 
   def self.evaluate(rpn_list)
@@ -15,10 +16,14 @@ class RPNCalculator
 
   def self.is_operation(operation)
     operations = ["+", "-", "*", "/", "^"]
-    operations.include?(operation)
+    if operations.include?(operation)
+      return true
+    else
+      return false
+    end
   end
   
   def self.is_number(num)
-    num.to_i =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
+ 
   end
 end
