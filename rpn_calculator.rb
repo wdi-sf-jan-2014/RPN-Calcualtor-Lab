@@ -10,23 +10,19 @@ class RPNCalculator
   end
 
   def self.evaluate(rpn_list)
-    stack = Stack.new()
-    rpn_list.each do |f|
-      if self.is_operation(f)
-        stack.push(f)
-        operator = stack.pop
-        value2 = (stack.pop).to_f
-        value1 = (stack.pop).to_f
-        return_value = value1.public_send(operator,value2)
-        stack.push(return_value)
-        return return_value
-      else
-        stack.push(f)
+    new_stack = Stack.new
+    rpn_list.each do |x|
+      if self.is_number(x)
+        new_stack.push(x)
+      elsif self.is_operation(x)
+        operator = x
+        value = new_stack.pop
+        value2 = new_stack.pop
+        return_value = value2.to_f.public_send(operator, value.to_f)
+        new_stack.push(return_value)
       end
-
     end
-
-
+    return new_stack.pop
   end
 
   def self.is_operation(operation)
