@@ -59,16 +59,32 @@ class RPNCalculator
   end
 end
 
-ended = false
-until ended 
-  puts ("Enter an RPN expression to evaluate (or 'exit' to quit).")
-  response = gets.chomp
-  if response == 'exit'
-    ended = true
-  else
-    puts("Result is: #{RPNCalculator.evaluate(RPNCalculator.parse(response))}")
+def get_user_input
+  ended = false
+  until ended 
+    puts ("Enter an RPN expression to evaluate (or 'exit' to quit).")
+    response = gets.chomp
+    if response == 'exit'
+      ended = true
+    else
+      puts("Result is: #{RPNCalculator.evaluate(RPNCalculator.parse(response))}")
+    end
   end
 end
 
+def process_from_file(filename)
+  puts("processing file: " + filename)
+  File.open(filename) do |file|
+    while line = file.gets
+      puts("Result is: #{RPNCalculator.evaluate(RPNCalculator.parse(line))}")
+    end
+  end
+end
+
+if ARGV.size >= 1
+  process_from_file(ARGV[0])
+else
+  get_user_input
+end
 
 
