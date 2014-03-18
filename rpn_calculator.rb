@@ -13,13 +13,33 @@ class RPNCalculator
   end
 
   def self.evaluate(rpn_list)
+    stack = Stack.new()
+    while rpn_list.length > 0
+      char = rpn_list.shift
+      if is_number(char)
+        stack.push(char.to_f)
+      else
+        num2 = stack.pop()
+        num1 = stack.pop()
+        result = num1.send(char, num2)
+        stack.push(result)
+      end
+    end
+    return result
+
+
   end
 
-  def self.is_operation(operation)
+  def self.is_operator(operation)
+    if operation.match(/[\*\/\+\-\^]/)
+      return true
+    else
+      return false
+    end
   end
 
   def self.is_number(num)
-    if num.match([\*\/\+\-\^])
+    if num.match(/\d/)
       return true
     else
       return false

@@ -100,6 +100,25 @@ class List
     end
   end
 
+  def shift
+    if @length == 0
+      return nil
+    elsif @head == @tail
+      temp = @head
+      @head = nil
+      @tail = nil
+      @length = 0
+      return temp.value
+    else
+      temp = @head
+      @head = @head.next
+      @head.previous = nil
+      temp.next = nil
+      @length = @length - 1
+      return temp.value
+    end
+  end
+
   def first
     if @head
       return @head.value
@@ -115,5 +134,6 @@ class List
       return nil
     end
   end
+
 
 end
