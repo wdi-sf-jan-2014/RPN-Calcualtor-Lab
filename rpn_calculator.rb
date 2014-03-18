@@ -15,8 +15,11 @@ class RPNCalculator
   end
 
   def self.is_operation(operation)
+    ops = ['+', '-', '^', '*', '/']
+    return ops.include?(operation)
   end
   
   def self.is_number(num)
+    return (Float(num) != nil rescue false)
   end
 end
