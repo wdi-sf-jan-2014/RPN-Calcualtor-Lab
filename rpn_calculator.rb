@@ -16,13 +16,13 @@ class RPNCalculator
   def self.evaluate(rpn_list)
     stack = Stack.new
     while rpn_list.length > 0
-      num = rpn_list.shift
-      if RPNCalculator.is_number(num)
-        stack.push num
+      char = rpn_list.shift
+      if RPNCalculator.is_number(char)
+        stack.push char
       else
         num1 = stack.pop
         num2 = stack.pop
-        num3 = num2.to_f.send(num, num1.to_f)
+        num3 = char == "^" ? num2.to_f.send("**", num1.to_f) : num2.to_f.send(char, num1.to_f)
         stack.push num3
       end 
     end
