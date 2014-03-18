@@ -1,4 +1,4 @@
-Reverse Polish Notation Calcualtor Lab
+Reverse Polish Notation Calculator Lab
 ==================
 
 We've probably all seen infix notation for arithmetic expressions, i.e. `(1+2)*3=9`. However there exists another way of writing these expressions in what is called *postfix notation* or *reverse polish notation*. For example, the follwing infix
