@@ -24,6 +24,10 @@ class RPNCalculator
   end
   
   def self.is_number(num)
- 
+    if num.match([-+]?[0-9]*\.?[0-9]+)
+      return true
+    else
+      return false
+    end
   end
 end
