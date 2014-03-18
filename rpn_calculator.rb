@@ -5,15 +5,35 @@ require './stack.rb'
 class RPNCalculator
  
   # Parse should return a list class that you defined, not a ruby array 
-  def self.parse(rpn_string)
-  end
+    def self.parse(rpn_string)
+        arg_list = List.new
+        rpn_string.split(' ').each {|arg| arg_list.push(arg)}
+        return arg_list
+    end
 
-  def self.evaluate(rpn_list)
-  end
+    def self.evaluate(rpn_list)
+        calc_stack = Stack.new
 
-  def self.is_operation(operation)
-  end
-  
-  def self.is_number(num)
-  end
+        while (arg = rpn_list.shift)
+            if (self.is_number(arg))
+                calc_stack.push(arg.to_f)
+            elsif (self.is_operation(arg))
+                op = arg
+                num2 = calc_stack.pop
+                num1 = calc_stack.pop
+                val = self.calc(num1, num2, op)
+                calc_stack.push(val)
+            end
+        end
+        return calc_stack.pop
+    end
+
+    def self.is_operation(operation)
+        ops = ['+', '-', '^', '*', '/']
+        return ops.include?(operation)
+    end
+
+    def self.is_number(num)
+        return (Float(num) != nil rescue false)
+    end
 end
