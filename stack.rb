@@ -20,6 +20,14 @@ class Stack
     return @list.pop
   end
 
+  def inspect
+    return "Stack " + @list.inspect
+  end
+
+  def to_s
+    return @list.to_s
+  end
+
 end
 
 class List
