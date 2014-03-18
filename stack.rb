@@ -7,6 +7,7 @@ class Stack
   require './node.rb'
 
   attr_reader :length
+  attr_accessor :head, :tail
 
   def initialize
     @head = nil
