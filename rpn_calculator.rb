@@ -29,7 +29,6 @@ class RPNCalculator
       end
     end
     return stack.pop
-    # binding.pry
   end
 
   def self.is_operation(operation)
