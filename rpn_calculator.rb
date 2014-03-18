@@ -40,7 +40,7 @@ class RPNCalculator
   end
   
   def self.is_number(num)
-    if num.match(/[-+]?[0-9]*\.?[0-9]/)
+    if num.match(/\A[-+]?\d+?(_?\d+)*(\.\d+e?\d*)?\Z/)
       return true
     else
       return false
