@@ -38,16 +38,21 @@ describe RPNCalculator do
     rpn_string = "5 8 -"
     rpn_list = RPNCalculator.parse(rpn_string)
 
-    expect(RPNCalcualtor.evaluate(rpn_list)).to eq(-3)
+    expect(RPNCalculator.evaluate(rpn_list)).to eq(-3)
 
     rpn_string = "5 2 /"
     rpn_list = RPNCalculator.parse(rpn_string)
 
-    expect(RPNCalcualtor.evaluate(rpn_list)).to eq(2.5)
+    expect(RPNCalculator.evaluate(rpn_list)).to eq(2.5)
 
     rpn_string = "4 5 8 + * 2 /"
     rpn_list = RPNCalculator.parse(rpn_string)
 
-    expect(RPNCalcualtor.evaluate(rpn_list)).to eq(26)
+    expect(RPNCalculator.evaluate(rpn_list)).to eq(26)
+
+    rpn_string = "4 5 8 + * 2 ^"
+    rpn_list = RPNCalculator.parse(rpn_string)
+
+    expect(RPNCalculator.evaluate(rpn_list)).to eq(2704)
   end
 end
