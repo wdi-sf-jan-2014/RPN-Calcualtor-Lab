@@ -50,4 +50,10 @@ describe RPNCalculator do
 
     expect(RPNCalculator.evaluate(rpn_list)).to eq(26)
   end
+
+  it 'should be able to handle exponents' do
+    rpn_string = "2 3 ^"
+
+    expect(RPNCalculator.evaluate(RPNCalculator.parse(rpn_string))).to eq(8)
+  end
 end
