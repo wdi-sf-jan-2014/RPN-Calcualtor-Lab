@@ -50,10 +50,10 @@ class RPNCalculator
   end
 
   def self.is_operation(operation)
-    /^[\^*+-\/]$/.match(operation) != nil ? true : false
+    /\A[\^*+-\/]\z/.match(operation) != nil ? true : false
   end
   
   def self.is_number(num)
-    /^[+-]?([\d])+[.]?[\d]*$/.match(num) != nil ? true : false
+    /\A[+-]?([\d])+[.]?[\d]*\z/.match(num) != nil ? true : false
   end
 end
