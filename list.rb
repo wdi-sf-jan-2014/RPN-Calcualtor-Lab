@@ -71,9 +71,10 @@ class List
       retval = node.value
       @length -= 1
       @head = node.next_node
-      @head.previous_node = nil
       if (@head.nil?)
         @tail = nil
+      else
+        @head.previous_node = nil
       end
       node.free
     end
