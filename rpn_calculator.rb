@@ -6,9 +6,16 @@ class RPNCalculator
  
   # Parse should return a list class that you defined, not a ruby array 
   def self.parse(rpn_string)
+    rpn_list = Stack.new
+    array = rpn_string.split(" ")
+    array.each do |el|
+      rpn_list.push(el)
+    end
+    return rpn_list
   end
 
   def self.evaluate(rpn_list)
+    
   end
 
   def self.is_operation(operation)
