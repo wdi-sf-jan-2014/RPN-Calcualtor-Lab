@@ -21,7 +21,11 @@ class RPNCalculator
       if RPNCalculator.is_operation(item)
         x = stack.pop
         y = stack.pop
-        stack.push(y.method(item).(x))
+        if item == "^"
+          stack.push(y**x)
+        else
+          stack.push(y.method(item).(x))
+        end
       end
     end
     return stack.pop

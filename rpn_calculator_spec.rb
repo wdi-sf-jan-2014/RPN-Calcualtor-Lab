@@ -50,5 +50,10 @@ describe RPNCalculator do
     rpn_list = RPNCalculator.parse(rpn_string)
 
     expect(RPNCalculator.evaluate(rpn_list)).to eq(26)
+
+    rpn_string = "4 5 8 + * 2 ^"
+    rpn_list = RPNCalculator.parse(rpn_string)
+
+    expect(RPNCalculator.evaluate(rpn_list)).to eq(2704)
   end
 end
